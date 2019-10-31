@@ -1,2 +1,2 @@
 # MiniKernel
-x86 and PowerPC (e500) smallest kernel possible used for architectural test purposes.
+x86, PowerPC (e500) and ARMv7 minimalistic kernel used for architectural test purposes.
