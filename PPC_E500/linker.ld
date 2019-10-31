@@ -9,13 +9,6 @@ SECTIONS
         boot.o(.text)
     }
 
-    . = 0x00003000;
-
-    .tests . :
-    {
-        tests.o(.text)
-    }
-
     . = 0x1000;
 
     .text . :

@@ -97,7 +97,6 @@ void kernel_kickstart(void)
     bsp_init();
     output_str("BSP Initialized, jumping to test code\n", SERIAL);
 
-    main();
     output_str("MiniKernel: HALTING\n", SERIAL);
 
     while(1);
