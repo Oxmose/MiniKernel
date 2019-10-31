@@ -19,6 +19,7 @@
 
 /* Test entry point */
 extern void test_entry(void);
+extern void main(void);
 
 static void bsp_init(void)
 {
@@ -94,11 +95,10 @@ static void bsp_init(void)
 void kernel_kickstart(void)
 {
     bsp_init();
-    output_str("BSP Initialize, jumping to test code\n", SERIAL);
+    output_str("BSP Initialized, jumping to test code\n", SERIAL);
 
-    test_entry();
-
-    output_str("MiniKernel: End of test\n", SERIAL);
+    main();
+    output_str("MiniKernel: HALTING\n", SERIAL);
 
     while(1);
 }

@@ -24,16 +24,16 @@ all: clean $(OS_BINARY)
 
 # Run QEMU on our system
 run:
-	../../../qemu-2.12.0/build/ppc-softmmu/qemu-system-ppc -cpu e500 -d guest_errors,unimp -M ppce500 -serial stdio -s -bios $(OS_BINARY_ELF)
+	qemu-system-ppc -smp 2 -cpu e500 -d guest_errors,unimp -M ppce500 -serial stdio -s -bios $(OS_BINARY_ELF)
 
 debug:
-	../../../qemu-2.12.0/build/ppc-softmmu/qemu-system-ppc -cpu e500 -d guest_errors,unimp -M ppce500 -serial stdio -s -S -bios $(OS_BINARY_ELF)
+	qemu-system-ppc -smp 2 -cpu e500 -d guest_errors,unimp -M ppce500 -serial stdio -s -S -bios $(OS_BINARY_ELF)
 
 time: clean $(OS_BINARY_TIME)
-	../../../qemu-2.12.0/build/ppc-softmmu/qemu-system-ppc -cpu e500 -d guest_errors,unimp -M ppce500 -serial stdio -s -bios $(OS_BINARY_TIME_ELF)
+	.qemu-system-ppc -smp=2 -cpu e500 -d guest_errors,unimp -M ppce500 -serial stdio -s -bios $(OS_BINARY_TIME_ELF)
 
 debugtime: clean $(OS_BINARY_TIME)
-	../../../qemu-2.12.0/build/ppc-softmmu/qemu-system-ppc -cpu e500 -d guest_errors,unimp -M ppce500 -serial stdio -s -S -bios $(OS_BINARY_TIME_ELF)
+	.qemu-system-ppc -smp=2 -cpu e500 -d guest_errors,unimp -M ppce500 -serial stdio -s -S -bios $(OS_BINARY_TIME_ELF)
 
 $(OS_BINARY) : $(OS_BINARY_ELF)
 	$(OBJCP) -O binary  $< $@
